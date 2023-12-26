@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Cinemania is a website that recommends movies to watch based on your preference">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="movies, cinema, recommendation">
+    <meta name="Cyberod" content="Cinemania">
     <title>Cinemania</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
@@ -11,9 +14,55 @@
 
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <!-- Navbar -->
+        <div class="nav container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                Cine<span>Mania</span>
+            </a>
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Search">
+                <i class="bx bx-search"></i>
+            </div>
+            <!-- User -->
+            <a href="#" class="user">
+                <img src="./assets/images/profile.jpg" alt="" class="user-img">
+            </a>
+            <!-- side NavBar -->
+            <div class="navbar">
+                <a href="#home" class="nav-link nav-active">
+                    <i class="bx bx-home-circle"></i>
+                    <span class="nav-link-title">Home</span>
+                </a>
+                <a href="#home" class="nav-link">
+                    <i class="bx bx-compass"></i>
+                    <span class="nav-link-title">Explore</span>
+                </a>
+                <a href="#home" class="nav-link">
+                    <i class="bx bxs-hot"></i>
+                    <span class="nav-link-title">Trending</span>
+                </a>
+                <a href="#home" class="nav-link">
+                    <i class="bx bx-heart-circle"></i>
+                    <span class="nav-link-title">Favourites</span>
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
 
     <!-- script Link -->
-    <script src="./assets/js/script.js"></script>
-    
+    <script src="./assets/js/global.js"></script>
+    <script type="module" src="./assets/js/index.js"></script>
 </body>
 </html>
