@@ -1,2 +1,1 @@
-# Cinemaniac
-A movie recommendation system
+# Movie Recommendation System
