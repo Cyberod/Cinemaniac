@@ -12,46 +12,41 @@
     <!-- Box icon-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <!-- Navbar -->
-        <div class="nav container">
-            <!-- Logo -->
-            <a href="index.html" class="logo">
-                Cine<span>Mania</span>
-            </a>
-            <!-- Search Box -->
-            <div class="search-box">
-                <input type="search" name="" id="search-input" placeholder="Search">
-                <i class="bx bx-search"></i>
-            </div>
-            <!-- User -->
-            <a href="#" class="user">
-                <img src="./assets/images/profile.jpg" alt="" class="user-img">
-            </a>
-            <!-- side NavBar -->
-            <div class="navbar">
-                <a href="#home" class="nav-link nav-active">
-                    <i class="bx bx-home-circle"></i>
-                    <span class="nav-link-title">Home</span>
-                </a>
-                <a href="#home" class="nav-link">
-                    <i class="bx bx-compass"></i>
-                    <span class="nav-link-title">Explore</span>
-                </a>
-                <a href="#home" class="nav-link">
-                    <i class="bx bxs-hot"></i>
-                    <span class="nav-link-title">Trending</span>
-                </a>
-                <a href="#home" class="nav-link">
-                    <i class="bx bx-heart-circle"></i>
-                    <span class="nav-link-title">Favourites</span>
-                </a>
-
+    <header class="header">
+  
+    
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            Cine<span class="logo-name">Mania</span>
+        </a>
+        <!-- Search Box -->
+        <div class="search-box" search-box>
+            <div class="search-wrapper" search-wrapper>
+                <input type="text" name="search" aria-label="search movies" placeholder="Search any movies..." class="search-field" search-field>
+                
+                <button class="search-btn" search-toggler>
+                    <img src="./assets/images/close.png" width="24" height="24" alt="close search">
+                </button>
             </div>
         </div>
+
+        <div><i class="bx bx-search leading-icon" alt="open search "></i></div>
+
+        <!-- User -->
+        
+        <!-- side NavBar -->
+
+
+        </div>
+        
     </header>
 
 

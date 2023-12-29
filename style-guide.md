@@ -76,3 +76,80 @@ Google font
 --transition-short: 250ms ease;
 --transition-long: 500ms ease;
 ```
+
+
+NAVBAR
+
+            <div class="navbar">
+                <a href="#home" class="nav-link nav-active">
+                    <i class="bx bx-home-circle"></i>
+                    <span class="nav-link-title">Home</span>
+                </a>
+                <a href="#home" class="nav-link">
+                    <i class="bx bx-compass"></i>
+                    <span class="nav-link-title">Explore</span>
+                </a>
+                <a href="#home" class="nav-link">
+                    <i class="bx bxs-hot"></i>
+                    <span class="nav-link-title">Trending</span>
+                </a>
+                <a href="#home" class="nav-link">
+                    <i class="bx bx-heart-circle"></i>
+                    <span class="nav-link-title">Favourites</span>
+                </a>
+
+    
+    .nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+.navbar {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 18px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.1rem;  
+}
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #b7b7b7;
+}
+.nav-link:hover,
+.nav-active {
+  color: var(--main-color);
+  transition: o.3s all linear;
+  transform: scale(1.1);
+}
+.nav-link .bx {
+  font-size: 1.6rem;
+}
+.nav-link-title {
+  font-size: 0.7rem;
+  font: var(--weight-bold);
+}
+
+
+USER IMAGE
+.user {
+  display: flex;
+}
+.user-img {
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-inline-start: auto;
+}
+
+
+USER
+            <a href="#" class="user">
+                <img src="./assets/images/profile.jpg" alt="" class="user-img">
+            </a>
