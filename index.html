@@ -21,24 +21,26 @@
 <body>
     <!-- Header -->
     <header class="header">
-  
     
         <!-- Logo -->
         <a href="index.html" class="logo">
-            Cine<span class="logo-name">Mania</span>
+            <i class='bx bxs-camera-movie'></i>Cine<span class="logo-name">Mania</span>
         </a>
         <!-- Search Box -->
-        <div class="search-box active" search-box>
+        <div class="search-box" search-box>
             <div class="search-wrapper" search-wrapper>
                 <input type="text" name="search" aria-label="search movies" placeholder="Search any movies..." class="search-field" search-field>
-                <i class="bx bx-search leading-icon" alt="open search "></i>
+                
+                <i class="bx bx-search leading-icon" alt="search "></i>
 
             </div>
             <button class="search-btn" search-toggler>
                 <img src="./assets/images/close.png" width="24" height="24" alt="close search">
             </button>
         </div>
-
+        <button>
+            <i class="bx bx-search search-btn" alt="open search " search-toggler></i>
+        </button>
         
 
         <!-- User -->
@@ -46,9 +48,29 @@
         <!-- side NavBar -->
 
 
-        </div>
+    
         
     </header>
+
+    <!-- Side Bar -->
+    <div class="navbar">
+        <a href="#home" class="nav-link nav-active">
+            <i class="bx bx-home-circle"></i>
+            <span class="nav-link-title">Home</span>
+        </a>
+        <a href="#home" class="nav-link">
+            <i class="bx bx-compass"></i>
+            <span class="nav-link-title">Explore</span>
+        </a>
+        <a href="#home" class="nav-link">
+            <i class="bx bxs-hot"></i>
+            <span class="nav-link-title">Trending</span>
+        </a>
+        <a href="#home" class="nav-link">
+            <i class="bx bx-heart-circle"></i>
+            <span class="nav-link-title">Favourites</span>
+        </a>
+    </div>
 
 
 
@@ -58,7 +80,7 @@
 
 
     <!-- script Link -->
-    <script src="./assets/js/global.js"></script>
+    <script type="module" src="./assets/js/global.js"></script>
     <script type="module" src="./assets/js/index.js"></script>
 </body>
 </html>
