@@ -20,3 +20,12 @@ addEventOnElements(searchTogglers, "click", function() {
     searchBox.classList.toggle("active");
  });
 
+
+
+/*const exploreBtn = document.querySelector('.explore-btn');
+const exploreMenu = document.querySelector('.explore-menu');
+
+exploreBtn.addEventListener('click', () => {
+  exploreMenu.classList.toggle('show'); 
+})*/
+
