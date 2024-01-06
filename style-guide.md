@@ -86,7 +86,7 @@ NAVBAR
                     <span class="nav-link-title">Home</span>
                 </a>
                 <a href="#home" class="nav-link">
-                    <i class="bx bx-compass"></i>
+                    <i class="bx bx-compass bx bx-chevron-right"></i>
                     <span class="nav-link-title">Explore</span>
                 </a>
                 <a href="#home" class="nav-link">
