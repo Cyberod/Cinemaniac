@@ -63,20 +63,26 @@
   row-gap: 2.1rem;  
 }
 
-.navbar.nav-link.dropdown-content {
+.dropdown-content {
   position: relative;
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #333;
-  
+  background-color: #060622;
+  width: 100px;
+  margin-bottom:0%;
+  display: none;
+
+
 }
+
+
+
 
 .sub-item {
   font-size: 0.7rem;
-  margin-left: 20px;
+  margin-left: 30px;
   margin-top: 5px;
-  
+  margin-bottom: 10px;
 }
 .nav-link {
   display: flex;
@@ -96,7 +102,7 @@
 }
 .nav-link-title {
   font-size: 0.7rem;
-  display: grid;
+  display: fixed;
   align-items: center;
   grid-template-columns: 1fr auto;
   
@@ -104,12 +110,9 @@
 
 .bx.bx-chevron-right {
   position: absolute;
-  right: 0px; 
+  right: -5px; 
   flex-shrink: 0;
   justify-self: start;
-  float: right;
-  width: calc(100% - 2.6rem);
-  transform: translateY(-20px);/* shift the dropdown arrow upward*/
 }
 
 
