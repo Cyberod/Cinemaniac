@@ -153,3 +153,118 @@ USER
             <a href="#" class="user">
                 <img src="./assets/images/profile.jpg" alt="" class="user-img">
             </a>
+
+
+
+
+NAVBAR 2
+.sidebar {
+  position:absolute;
+  background-color: var(--body-color);
+  top:96px;
+  bottom: 0;
+  left: -340px;
+  max-width: 340px;
+  width: 100%;
+  overflow-y: overlay;
+  z-index: 4;
+  visibility: hidden;
+  transition: var(--transition-long);
+  border-block-start: 1px solid var(--container-color);
+}
+
+.sidebar.active {
+  transform: translateX(340px);
+  visibility: visible;
+}
+
+.sidebar::-webkit-scrollbar-thumb { background-color: transparent; }
+
+.sidebar:is(:hover, :focus-within)::-webkit-scrollbar-thumb {
+  background-color: var(--container-color);
+}
+
+.sidebar::-webkit-scrollbar-button { height:16px; }
+
+.navbar {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 18px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.1rem;
+  
+}
+
+
+
+
+
+.dropdown-content {
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--body-color);
+  width: 100px;
+  margin-bottom:0%;
+  display: none;
+
+
+}
+
+.sub-item {
+  font-size: 0.7rem;
+  margin-left: 38px;
+  margin-top: 5px;
+
+}
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #b7b7b7;
+  transition: var(--transition-short);
+}
+
+.nav-link .dropdown-content.sub-item { margin-block-end: 8px; }
+
+.nav-link:hover,
+.nav-active {
+  color: var(--main-color);
+  transition: o.3s all linear;
+  transform: scale(1.1);
+  font-weight: bold;
+}
+.nav-link .bx {
+  font-size: 1.6rem;
+}
+.nav-link-title {
+  font-size: 0.7rem;
+  display: flex; /*original is fixed*/
+  align-items: center;
+  grid-template-columns: 1fr auto;
+  letter-spacing: 0.8px;
+  
+}
+
+.bx.bx-chevron-right {
+  position: absolute;
+  right: -5px; 
+  flex-shrink: 0;
+  justify-self: start;
+}
+
+
+
+
+/*-----------------------------------*\
+  #LOGO
+\*-----------------------------------*/
+.logo .logo-name {
+  color: var(--main-color);
+}
+
+.bxs-camera-movie {
+  color: var(--main-color);
+}
