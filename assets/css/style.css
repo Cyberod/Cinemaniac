@@ -186,8 +186,7 @@ body {
 }
 
 .sidebar-title {
-  font-size:  var(--fs-title);
-  font-weight: var(--weight-bold);
+  font-size:  var(--fs-body);
   letter-spacing: 0.5px; 
 }
 
@@ -386,6 +385,18 @@ header{
   color: var(--main-color);
 }
 
+.sidebar-footer {
+  border-block-start: 1px solid var(--container-color);
+  padding-block-start: 30px;
+  margin-block-start: 16px;
+}
+
+.copyright {
+  color: var(--container-color);
+  margin-block-end: 20px;
+}
+
+.copyright a { display: inline; }
 
 
 /*-----------------------------------*\
