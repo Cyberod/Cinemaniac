@@ -10,7 +10,8 @@
   --text-color: #fcfeff;
   --primary-variant: hsla(349, 69%, 51%, 1);
   --secondary-variant: rgb(176, 176, 190);
-
+  --on-surface: hsla(250, 100%, 95%, 1);
+  --surface: hsla(250, 13%, 11%, 1);
   --on-surface-variant: rgb(157, 157, 163);
   /* gradient colors */
   --banner-overlay: 90deg, hsl(220, 17%, 7%) 0%, hsla(220, 17%, 7%, 0.5) 100%;
@@ -21,7 +22,7 @@
 
   --fs-heading: 4rem;
   --fs-title-lg: 2.6rem;
-  --fs-title: 2rem;
+  --fs-title: 3rem;
   --fs-body: 1.8rem;
   --fs-button: 1.5rem;
   --fs-label: 1.4rem;
@@ -185,11 +186,57 @@ body {
   100% {transform: rotate(360deg);}
 }
 
+.title {
+  font-size: var(--fs-title);
+}
+
 .sidebar-title {
   font-size:  var(--fs-body);
   letter-spacing: 0.5px; 
 }
 
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heading,
+.title-large,
+.title {
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.5px;
+}
+
+.heading {
+  color: var(--text-color);
+  font-size: var(--fs-title);
+  line-height: 1.2;
+}
+
+.title-large {
+  font-size: var(--fs-title-lg);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn {
+  color: var(--main-color);
+  font-size: var(--fs-button);
+  font-weight: var(--weight-bold);
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-block: 12px;
+  padding-inline: 20px 24px;
+  border-radius: var(--radius-8);
+  transition: var(--transition-short);
+}
 
 /*-----------------------------------*\
   #LOGO
@@ -205,6 +252,7 @@ body {
 .logo {
   font-weight: var(--weight-bold);
 }
+
 
 
 /*-----------------------------------*\
@@ -317,6 +365,7 @@ header{
   visibility: hidden;
   transition: var(--transition-long);
   border-block-start: 1px solid var(--container-color);
+  display: none;
 }
 
 
@@ -389,6 +438,7 @@ header{
   border-block-start: 1px solid var(--container-color);
   padding-block-start: 30px;
   margin-block-start: 16px;
+  font-size: 1rem;
 }
 
 .copyright {
@@ -403,6 +453,15 @@ header{
   #HOME PAGE
 \*-----------------------------------*/
 
+.container {
+  position: relative;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  padding: 24px 20px 48px;
+  height: calc(100vh - 96px);
+  overflow-y: overlay;
+  z-index: 1;
+}
 
 
 
