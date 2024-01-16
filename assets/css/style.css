@@ -528,6 +528,15 @@ header{
 
 .sidebar-link i { margin-right: 15px; }
 
+
+.sidebar-link .dropdown {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  top: -10px;
+  transition: var(--transition-long);
+}
+
 .sidebar-link:hover,
 .sidebar-link.active {
   color: var(--main-color);
