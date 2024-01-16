@@ -471,7 +471,7 @@ header{
   #SIDEBAR
 \*-----------------------------------*/
 .sidebar {
-  position: absolute;
+  position: fixed; /* absolute */
   background-color: var(--body-color);
   top: 96px;
   bottom: 0;
@@ -496,6 +496,7 @@ header{
   display: grid;
   gap:20px;
   padding-block: 36px;
+  flex-direction: column;
 }
 
 .sidebar-list {
@@ -516,12 +517,16 @@ header{
 .sidebar-list,
 .sidebar-footer { padding-inline: 36px; }
 
+.sidebar-list .sidebar-link { position: relative; }
+
+/* .sidebar-link .sidebar-title{ line-height: 60px; } */
+
 .sidebar-link {
   color: var(--main-color);
   transition: var(--transition-short);
-  display: flex;
-  flex-direction: column;
 }
+
+.sidebar-link i { margin-right: 15px; }
 
 .sidebar-link:hover,
 .sidebar-link.active {
@@ -553,8 +558,8 @@ header{
 
 .sidebar-footer {
   border-block-start: 1px solid var(--container-color);
-  padding-block-start: 30px;
-  margin-block-start: 16px;
+  padding-block-start: 80px;
+  margin-block-start: 30px;
   font-size: 1rem;
 }
 
@@ -565,7 +570,14 @@ header{
 
 .copyright a { display: inline; }
 
+.lang {
+  border-block-start: 1px solid var(--container-color);
+  padding-block-start: 10px;
+  margin-block-start: 10px;
+  padding-top: 50px;
 
+
+}
 /*-----------------------------------*\
   #HOME PAGE
 \*-----------------------------------*/
