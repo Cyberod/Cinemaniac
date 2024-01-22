@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/"><h1>LOGO</h1></a>
+
+    <hr>
+    <h1> Home Page</h1>
+    <div>
+
+
+        {% for genre in genres %}
+
+
+        <div>
+            <a href="/movies/{{genre.id}}">{{genre.id}} -- {{genre.name}} </a>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>
