@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-
+from .models import Movies
 
 genres = [
     {'id': 1, 'name':'Movie 1'},
