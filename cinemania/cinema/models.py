@@ -29,11 +29,12 @@ class Genres(models.Model):
 class Favourites(models.Model):
     movie_name = models.ForeignKey(Movies, on_delete=models.CASCADE)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
-    genre = models.ForeignKey(Genres, on_delete=models.CASCADE)
-    movie_description = models.TextField(null=True, blank=True)
+    genres = models.ForeignKey(Genres, on_delete=models.CASCADE)
+    movie_description = models.ForeignKey(Movies, on_delete=models.CASCADE)
+    #movie_description = models.TextField(null=True, blank=True)
     #movie_id = models.IntegerField(null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.genre[0:50]
+        return self.movie_description
