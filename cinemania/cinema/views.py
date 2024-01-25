@@ -11,8 +11,8 @@ from .models import Movies
 
 
 def home(request):
-    genres = Movies.objects.all()
-    context = {'genres': genres}
+    movies = Movies.objects.all()
+    context = {'movies': movies}
     return render(request, 'cinema/home.html', context)
 
 

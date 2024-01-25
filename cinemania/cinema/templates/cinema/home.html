@@ -13,12 +13,15 @@
     <div>
 
 
-        {% for genre in genres %}
+        {% for movie in movies %}
 
 
         <div>
-            <span>{{genre.movie_description}}</span>
-            <a href="/movies/{{genre.id}}">{{genre.id}} -- {{genre.name}} </a>
+            
+            <a href="/movies/{{movie.id}}">{{movie.id}} -- {{movie.name}} </a>
+            {% if movie.favourite_status %}
+                <p>Favourite</p>
+            {% endif %}
         </div>
 
         {% endfor %}
