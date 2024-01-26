@@ -38,3 +38,7 @@ def createFavourite(request):
 
     context = {'form': form}
     return render(request, 'cinema/createfav.html', context)
+
+
+def UpdateFavouritr(request, pk):
+    pass
