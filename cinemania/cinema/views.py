@@ -1,7 +1,8 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from .models import Movies, Favourites
+from .forms import FavouriteForm
 # Create your views here.
-from .models import Movies
+
 
 #genres = [
 #    {'id': 1, 'name':'Movie 1'},
@@ -12,7 +13,9 @@ from .models import Movies
 
 def home(request):
     movies = Movies.objects.all()
-    context = {'movies': movies}
+    favourites = Favourites.objects.all()
+    context = {'movies': movies,
+                'favourites': favourites}
     return render(request, 'cinema/home.html', context)
 
 
@@ -22,3 +25,16 @@ def movies(request, pk):
     context = {'movies': film}        
 
     return render(request, 'cinema/movies.html', context)                                                               
+
+
+def createFavourite(request):
+    form = FavouriteForm()
+    if request.method == 'POST':
+        form = FavouriteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    
+
+    context = {'form': form}
+    return render(request, 'cinema/createfav.html', context)

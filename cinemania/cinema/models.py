@@ -6,6 +6,7 @@ from django.db.models.deletion import CASCADE
 
 
 class Movies(models.Model):
+    #viewer = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=1000)
     genre_name = models.ForeignKey('Genres', on_delete=models.SET_NULL, null=True, blank=True) 
     description = models.TextField(null=True, blank=True)
