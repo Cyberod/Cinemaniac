@@ -1,33 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="/"><h1>LOGO</h1></a>
+{% extends 'base.html' %}
 
-    <hr>
+
+
+{% block content %}
+
+
     <h1> Home Page</h1>
     <div>
-
+        <div>
+            <a href="{% url 'createfav' %}">Create Favourite</a>
+        </div>
+        <hr>
 
         {% for movie in movies %}
 
 
-        <div>
+        <div> 
             
             <a href="/movies/{{movie.id}}">{{movie.id}} -- {{movie.name}} </a>
-            {% if movie.favourite_status %}
+            {% for favourite in favourites %}
+            {% if favourite.status %}
                 <p>Favourite</p>
             {% endif %}
+            {% endfor %}
         </div>
+<<<<<<< HEAD
         <small>{{movie.}}</small><hr>
+=======
+        <small>{{ movie.genre_name}} --- {{ movie.description }}</small>
+        <hr>
+>>>>>>> fec47387cba35409f2750e0b79c47534fdea8c85
 
         {% endfor %}
 
     </div>
 
-</body>
-</html>
+{% endblock %}
