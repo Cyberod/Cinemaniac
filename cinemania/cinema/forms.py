@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from.models import Movies, Genres, Favourites
+from.models import Favourites
 
 
 class FavouriteForm(ModelForm):

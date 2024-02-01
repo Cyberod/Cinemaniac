@@ -5,46 +5,60 @@ from django.db.models.deletion import CASCADE
 # Create your models here.
 
 
-class Movies(models.Model):
-    #viewer = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=1000)
-    genre_name = models.ForeignKey('Genres', on_delete=models.SET_NULL, null=True, blank=True) 
-    description = models.TextField(null=True, blank=True)
-    favourite_status = models.ForeignKey('Favourites', on_delete=models.SET_NULL, null=True, blank=True, default=False)
-    #updated = models.DateTimeField(auto_now=True)
-    created = models.DateTimeField(auto_now_add=True)
+class Viewer(models.Model):
+    F_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    L_name = models.CharField(max_length=200, null=True)
+    phone = models.IntegerField(null=True)
+    email = models.CharField(max_length=200, null=True)
+    favourites = models.ManyToManyField('Movie', through='FavouriteMovie')
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
-    class Meta:
-        ordering = ['-created']
-
+    def __str__(self):
+        return self.F_name.username
 
 
+
+class Movie(models.Model):
+    title = models.CharField(max_length=200, null=True)
+    description = models.TextField(null=True)
+    genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)
+    release_date = models.DateField(null=True)
+    #viewer = models.ManyToManyField(Viewer, blank=True)
+    #favourite = models.ManyToManyField('Favourites', blank=True)
+    #favourite = models.ForeignKey(Favourites, on_delete=CASCADE, null=True)
+    #favourite = models.ManyToManyField(Favourites, blank=True)
+    #image = models.ImageField(upload_to='cinema/static/images/', null=True)
+
+    def __str__(self):
+        return self.title
+
+
+
+
+
+
+class Genre(models.Model):
+    name = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name
 
 
-    
 
-class Genres(models.Model):
-    genre_name = models.TextField(null=True, blank=True)
-    genre_id = models.IntegerField(null=True, blank=True)
+class FavouriteMovie(models.Model):
 
+    STATUS = (
+        (True, 'favourite'),
+        (False, 'not favourite')
+        )
+
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    viewer = models.ForeignKey(Viewer, null=True, on_delete=CASCADE)
+    movie = models.ForeignKey(Movie, null=True, on_delete=CASCADE)
+    staatus = models.BooleanField(default=False, choices=STATUS)
+
+    class Meta:
+        unique_together = ('viewer','movie') # To ensure that each viewer has only one entry for each movie
 
     def __str__(self):
-        return self.genre_name
-
-   
-
-class Favourites(models.Model):
-    movie_name = models.ForeignKey(Movies, on_delete=models.CASCADE)
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE)
-    genres = models.ForeignKey(Genres, on_delete=models.CASCADE)
-    #movie_description = models.TextField(null=True, blank=True)
-    #movie_id = models.IntegerField(null=True, blank=True)
-    status = models.BooleanField(default=False)
-    updated = models.DateTimeField(auto_now=True)
-    created = models.DateTimeField(auto_now_add=True)
-
-    def __bool__(self):
-        return self.status
+        return f'{self.viewer.F_name.username} - {self.movie.title}'
