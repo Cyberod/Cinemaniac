@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .models import Movie
+from .models import Genre
 #from .forms import FavouriteForm
 # Create your views here.
 
@@ -13,8 +13,8 @@ from .models import Movie
 
 
 def home(request):
-    movies = Movie.objects.all()
-    context = {'movies': movies}
+    genres = Genre.objects.all()
+    context = {'genres': genres}
     return render(request, 'cinema/home.html', context)
 
 
