@@ -19,6 +19,10 @@
             {% for genre in genres %}
                 {{genre.name}}<br>
             {% endfor %}
+
+            {% for movie in movies %}
+                {{movie.title}} -- {{movie.genre}} <br>
+            {% endfor %}
         </div>
 
 
