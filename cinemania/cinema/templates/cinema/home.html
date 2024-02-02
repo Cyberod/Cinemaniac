@@ -19,10 +19,17 @@
             {% for genre in genres %}
                 {{genre.name}}<br>
             {% endfor %}
+            <br>
 
-            {% for movie in movies %}
-                {{movie.title}} -- {{movie.genre}} <br>
-            {% endfor %}
+
+            <h1>Viewer: {{ viewer_name }}</h1>
+
+            <h2>Favorite Movies:</h2>
+            <ul>
+                {% for favorite_movie in favorite_movies %}
+                    <li>{{ favorite_movie}}</li>
+                {% endfor %}
+            </ul>
         </div>
 
 
