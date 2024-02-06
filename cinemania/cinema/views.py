@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
-from .models import Genre, Movie, Viewer, FavouriteMovie
+from .models import Genre
+#, Movie, Viewer, FavouriteMovie
 #from .forms import FavouriteForm
 # Create your views here.
 
