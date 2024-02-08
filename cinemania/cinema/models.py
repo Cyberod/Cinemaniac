@@ -21,7 +21,7 @@ class FavouriteMovie(models.Model):
         )
 
     created = models.DateTimeField(auto_now_add=True, null=True)
-    #viewer = models.ForeignKey('Viewer', null=True, on_delete=CASCADE)
+    #owned = models.ForeignKey('Viewer', null=True, on_delete=CASCADE)
     movie = models.ForeignKey('Movie', null=True, on_delete=CASCADE) # might need to change it to a manytomanykey because i would also want to access the list of favourite movies a user has
     status = models.BooleanField(default=False, choices=STATUS)
 
