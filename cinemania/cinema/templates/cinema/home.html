@@ -21,11 +21,11 @@
             {% endfor %}
             <br>
 
-
-            <h1>Viewer: {{ viewer_name }}</h1>
-
-            <h2>Favorite Movies:</h2>
-
+            {% for favouritee in favourited %}
+            <div><h1>Viewer: <h3>{{ favouritee.owned }}</h3> </h1></div>
+            
+            <h2>Favorite Movies: <h3>{{favouritee.owned.is_favourite}}</h3></h2>
+            {% endfor %}
         </div>
 
 
