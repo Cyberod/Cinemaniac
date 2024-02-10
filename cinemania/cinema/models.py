@@ -42,15 +42,17 @@ class Movie(models.Model):
     def __str__(self):
         return self.title
 
-### Yet to make migrations do remember
+
 
 class Viewer(models.Model):
     F_name = models.ForeignKey(User, on_delete=models.CASCADE)
     L_name = models.CharField(max_length=200, null=True)
     phone = models.IntegerField(null=True)
     email = models.CharField(max_length=200, null=True)
-    is_favourite = models.ForeignKey('Movie', on_delete=models.CASCADE, null=True)
+    is_favourite = models.ForeignKey('Movie', on_delete=models.SET_NULL, null=True)
     viewer_joined = models.DateTimeField(auto_now_add=True, null=True)
+
+
 
     def __str__(self):
         return self.F_name.username

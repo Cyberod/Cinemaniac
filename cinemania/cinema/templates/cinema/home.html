@@ -26,6 +26,10 @@
             
             <h2>Favorite Movies: <h3>{{favouritee.owned.is_favourite}}</h3></h2>
             {% endfor %}
+
+            {% for viewee in viewer_name %}
+            <div>Name:{{viewee.F_name}} Favourite-Movie: {{viewee.is_favourite.title}}</div>
+            {% endfor %}
         </div>
 
 
