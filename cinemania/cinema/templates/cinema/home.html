@@ -16,19 +16,40 @@
     <div>
 
         <div>
-            {% for genre in genres %}
-                {{genre.name}}<br>
-            {% endfor %}
+            <a href="{% url 'createfav' %}">Create Favourite</a>
+        </div><br>
+
+        <div>
+            <div>
+                <strong>List of Genres:</strong><br>    
+                <ul>
+                    {% for genre in genres %}
+                        <li><a href="{{ genre.get_absolute_url }}">{{ genre.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
             <br>
 
-            {% for favouritee in favourited %}
-            <div><h1>Viewer: <h3>{{ favouritee.owned }}</h3> </h1></div>
-            
-            <h2>Favorite Movies: <h3>{{favouritee.owned.is_favourite}}</h3></h2>
-            {% endfor %}
+            <ul>
+                {% for movie in movies %}
+                    <li>
+                        <strong>Title:</strong> {{ movie.title }}<br>
+                        <strong>Description:</strong> {{ movie.description }}<br>
+                        <strong>Genres:</strong>
+                        <ul>
+                            {% for genre in movie.genre.all %}
+                                <li>{{ genre.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>   
 
-            {% for viewee in viewer_name %}
-            <div>Name:{{viewee.F_name}} Favourite-Movie: {{viewee.is_favourite.title}}</div>
+            {% for viewer in viewers %}
+            <div>
+                <strong>Name:</strong>{{viewer.F_name}}<br>
+                <strong>Favourite Movie:</strong> {{viewer.is_favourite}}
+            </div><br>
             {% endfor %}
         </div>
 

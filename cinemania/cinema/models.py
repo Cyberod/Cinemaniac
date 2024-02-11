@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.urls import reverse
 
 
 # Create your models here.
@@ -9,8 +12,11 @@ from django.db.models.deletion import CASCADE
 class Genre(models.Model):
     name = models.CharField(max_length=200, null=True)
     
+    def get_absolute_url(self):
+        return reverse('genre_movies', args=[str(self.id)])
     def __str__(self): 
         return self.name
+    
     
 
 class FavouriteMovie(models.Model):
@@ -35,7 +41,7 @@ class FavouriteMovie(models.Model):
 class Movie(models.Model):
     title = models.CharField(max_length=200, null=True)
     description = models.TextField(null=True)
-    genre = models.ManyToManyField(Genre)
+    genre = models.ManyToManyField(Genre, related_name='movies' )
     release_date = models.DateField(null=True)
     #favourited_movie = models.ForeignKey(FavouriteMovie, on_delete=CASCADE)
 
@@ -53,6 +59,19 @@ class Viewer(models.Model):
     viewer_joined = models.DateTimeField(auto_now_add=True, null=True)
 
 
+    class Meta:
+        unique_together = ('F_name', 'is_favourite' )
+
 
     def __str__(self):
         return self.F_name.username
+    
+
+@receiver(post_save, sender=Viewer)
+def update_favourite_movie(sender, instance, **kwargs):
+    if instance.is_favourite:
+        # If the Viewer's is_favourite field is set, create or update the FavouriteMovie entry
+        FavouriteMovie.objects.update_or_create(owned=instance, movie=instance.is_favourite, defaults={'status': True})
+    else:
+        # If the Viewer's is_favourite field is cleared, delete the corresponding FavouriteMovie entry
+        FavouriteMovie.objects.filter(owned=instance).delete()
