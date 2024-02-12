@@ -50,7 +50,7 @@ def genre_movies(request, genre_id):
     movies = genre.movies.all() # I used the related name movies to access the list of movies
 
     context = {'genre': genre, 'movies': movies}
-    return render(request, 'genre_movies.html', context)
+    return render(request, 'cinema/genre_movies.html', context)
 
 
 
