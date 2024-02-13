@@ -49,8 +49,16 @@
             <div>
                 <strong>Name:</strong>{{viewer.F_name}}<br>
                 <strong>Favourite Movie:</strong> {{viewer.is_favourite}}
+
+                {% if viewer.is_favourite %}
+                <a href="{% url 'remove_fav' viewer.id %}">remove</a>
+                {% endif %}
+
             </div><br>
             {% endfor %}
+
+
+            
         </div>
 
 

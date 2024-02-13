@@ -7,26 +7,12 @@ from .forms import AddViewerFavForm
 # Create your views here.
 
 
-#genres = [
-#    {'id': 1, 'name':'Movie 1'},
-#   {'id': 2, 'name':'Movie 2'},
-#    {'id': 3, 'name':'Movie 3'},
-#]
-
 
 def home(request):
     genres = Genre.objects.all()
     favourited = FavouriteMovie.objects.all()
     viewers = Viewer.objects.all()
     movies = Movie.objects.all()
-
-    #favourite_movies = FavouriteMovie.objects.filter(viewer=viewer_instance)
-
-    #favourite_movies = viewer_instance.favourites.prefetch_related('movie').all()
-
-
-    
-
 
     context = {'genres': genres, 'favourited': favourited, 'viewers': viewers, 'movies': movies}
     return render(request, 'cinema/home.html', context)
@@ -47,10 +33,46 @@ def CreateFav(request):
 
 def genre_movies(request, genre_id):
     genre = get_object_or_404(Genre, pk=genre_id)
-    movies = genre.movies.all() # I used the related name movies to access the list of movies
+    movies = genre.movies.all() # used the related name movies to access the list of movies
 
     context = {'genre': genre, 'movies': movies}
     return render(request, 'cinema/genre_movies.html', context)
+
+
+
+def remove_fav(request, viewer_id):
+
+    viewer = get_object_or_404(Viewer, id=viewer_id)
+
+
+    # Remove the viewers favourite movie and update the viewer
+    viewer.is_favourite = None
+    viewer.save()
+
+    # Update the FavouriteMovie model
+    FavouriteMovie.objects.filter(owned=viewer).update(status=False)
+
+
+    return redirect('/')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
