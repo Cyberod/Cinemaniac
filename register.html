@@ -5,7 +5,7 @@
     <meta name="description" content="Cinemania is a website that recommends movies to watch based on your preference">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="movies, cinema, recommendation">
-    <title>Login Form</title>
+    <title>Registration form</title>
     <meta name="Cyberod" content="Cinemania">
     <link rel="stylesheet" href="./assets/css/login.css">
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
@@ -27,52 +27,71 @@
         </a>
     </header>
 
-    <section class="login-container">
+    <section class=" register-container">
         <section class="container">
             <div class="form__container">
-                <h3>Login</h3>
+                <h3>Sign Up</h3>
 
                 <form action="">
                     <section class="input">
                         <div>
-                            <input type="text" placeholder="username">
+                            <span>First Name</span>
+                            <input type="text" placeholder="First Name">
+                         </div>
+
+                        <div class="input__icon">
+                            <i class="bx bxs-user" style="color:#ffb43a;"></i>
+                        </div>
+                    </section>
+
+                    <section class="input">
+                        <div>
+                            <span>Last Name</span>
+                            <input type="text" placeholder="Last Name">
                         </div>
 
+                        <div class="input__icon">
+                            <i class="bx bxs-user-plus" style="color:#ffb43a;"></i>
+                        </div>
+                    </section>
+
+                    <section class="input">
                         <div>
-                            <i class="bx bxs-user" style="color:#ffb43a;"></i>
+                            <span>Email</span>
+                            <input type="email" placeholder="Email">
+                        </div>
+
+                        <div class="input__icon">
+                            <i class='bx bxs-envelope' style='color:#ffb43a' ></i>
                         </div>
                     </section>
 
 
                     <section class="input">
                         <div>
+                            <span>Password</span>
                             <input type="password" placeholder="password">
                         </div>
 
-                        <div>
+                        <div class="input__icon">
                             <i class='bx bxs-lock' style="color:#ffb43a;"></i>
                         </div>
                     </section>
 
-
-                    <section class="forgot__password">
+                    
+                    <section class="input">
                         <div>
-                            <input type="checkbox" name="" id="">
-                            <span>remember me</span>
+                            <span>confirm Password</span>
+                            <input type="password" placeholder="confirm password">
                         </div>
 
-                        <div>
-                            <a href="">forgot password</a>
+                        <div class="input__icon">
+                            <i class='bx bxs-lock' style="color:#ffb43a;"></i>
                         </div>
                     </section>
 
                     <section class="button">
-                        <button>submit</button>
-                    </section>
-
-                    <section class="create">
-                        <p>Don't have an account?</p>
-                        <a href="">Register</a>
+                        <button>Sign Up</button>
                     </section>
                 </form>
             </div>
