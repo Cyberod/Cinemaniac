@@ -72,7 +72,7 @@ def home(request):
     movies = Movie.objects.all()
 
     context = {'genres': genres, 'favourited': favourited, 'viewers': viewers, 'movies': movies}
-    return render(request, 'cinema/home.html', context)
+    return render(request, 'cinema/movie-list.html', context)
 
 
 @login_required(login_url='/login/')

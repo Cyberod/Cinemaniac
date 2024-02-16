@@ -1,107 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Cinemania is a website that recommends movies to watch based on your preference">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="movies, cinema, recommendation">
-    <meta name="Cyberod" content="Cinemania">
-    <title>Cinemania</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-    <!-- Box icon-->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% extends 'base.html' %}
 
-    <!-- Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-    
-        <!-- Logo -->
-        <a href="index.html" class="logo">
-            <i class='bx bxs-camera-movie'></i>Cine<span class="logo-name">Mania</span>
-        </a>
-        <!-- Search Box -->
-        <div class="search-box" search-box>
-            <div class="search-wrapper" search-wrapper>
-                <input type="text" name="search" aria-label="search movies" placeholder="Search any movies..." class="search-field" search-field>
-                
-                <i class="bx bx-search leading-icon" alt="search "></i>
-
-            </div>
-            <button class="search-btn" search-toggler>
-                <img src="./assets/images/close.png" width="24" height="24" alt="close search">
-            </button>
-        </div>
-        <button>
-            <i class="bx bx-search search-btn" alt="open search " search-toggler></i>
-        </button>
-        
-
-        <!-- User -->
-        
-        <!-- side NavBar -->
-
-
-    
-        
-    </header>
-
-    <!-- Side Bar -->
-    <nav class="sidebar active" sidebar>
-        <div class="sidebar-inner">
-            <div class="sidebar-list">
-                <a href="#" class="sidebar-link">
-                    <i class='bx bx-home-circle sidebar-title'></i>Home
-                </a>
-
-                <a href="#" class="sidebar-link dropdown">
-                    <i class="bx bx-compass sidebar-title sub-btn"></i>
-                    Explore <i class="bx bx-chevron-right"></i>
-                    <div class="sidebar-menu">
-                        <a href="" class="sub-menu active" menu-close>Action</a>
-                        <a href="" class="sub-menu" menu-close>Horror</a>
-                        <a href="" class="sub-menu" menu-close>Drama</a>
-                        <a href="" class="sub-menu" menu-close>Adventure</a>
-                        <a href="" class="sub-menu" menu-close>Sci-fi</a>
-                        <a href="" class="sub-menu" menu-close>Comedy</a>
-                    </div>
-                </a>
-
-                <a href="#" class="sidebar-link">
-                    <i class='bx bxs-hot sidebar-title'></i>Trending
-                </a>
-
-                <a href="" class="sidebar-link">
-                    <i class="bx bx-heart-circle sidebar-title"></i>Favourites
-                </a>
-
-            </div>
-            
-            <div class="sidebar-list lang">
-                <a href="#" class="sidebar-link">
-                    <p class="sidebar-title sub-btn">Language<i class="bx bxs-chevron-right dropdown"></i></p>
-                    
-                <div class="sidebar-menu">
-                    <a href="" class="sub-menu" menu-close>English</a>
-                    <a href="" class="sub-menu" menu-close>Hindi</a>
-                    <a href="" class="sub-menu" menu-close>Bangali</a>
-                </div>
-                </a>
-            </div>
-
-            <div class="sidebar-footer">
-                <p class="copyright">Cinemania Copyright 2024 <a href="https://github.com/Cyberod/Cinemania">Jonaz</a></p>
-
-                <img src="./assets/images/tmdb-logo.svg" width="130" height="17" alt="tmdb-logo">
-            </div>
-    </nav>
-
+{% load static %}
+{% block content %}
     <article class="container" page-content>
         <!-- BANNER -->
 
@@ -110,7 +10,7 @@
             <div class="banner-slider">
 
                 <div class="slider-item active" slider-item>
-                    <img src="./assets/images/slider-banner.jpg" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
+                    <img src="{% static 'images/slider-banner.jpg' %}" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
 
                     <div class="banner-content">
 
@@ -145,7 +45,7 @@
 
                
                 <div class="slider-item" slider-item>
-                    <img src="./assets/images/slider-banner.jpg" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
+                    <img src="{% static 'images/slider-banner.jpg' %}" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
 
                     <div class="banner-content">
 
@@ -168,7 +68,7 @@
                         </p>
 
                         <a href="./detail.html" class="btn">
-                            <img src="./assets/images/play_circle.png" width="24" height="24" aria-hidden="true" alt="play circle">
+                            <img src="{% static 'images/play_circle.png' %}" width="24" height="24" aria-hidden="true" alt="play circle">
 
                             <span class="span">watch Now</span>
                         </a>
@@ -180,7 +80,7 @@
                 
                 
                 <div class="slider-item" slider-item>
-                    <img src="./assets/images/slider-banner.jpg" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
+                    <img src="{% static 'images/slider-banner.jpg' %}" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
 
                     <div class="banner-content">
 
@@ -203,7 +103,7 @@
                         </p>
 
                         <a href="./detail.html" class="btn">
-                            <img src="./assets/images/play_circle.png" width="24" height="24" aria-hidden="true" alt="play circle">
+                            <img src="{% static 'images/play_circle.png' %}" width="24" height="24" aria-hidden="true" alt="play circle">
 
                             <span class="span">watch Now</span>
                         </a>
@@ -215,7 +115,7 @@
 
                 
                 <div class="slider-item" slider-item>
-                    <img src="./assets/images/slider-banner.jpg" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
+                    <img src="{% static 'images/slider-banner.jpg' %}" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
 
                     <div class="banner-content">
 
@@ -238,7 +138,7 @@
                         </p>
 
                         <a href="./detail.html" class="btn">
-                            <img src="./assets/images/play_circle.png" width="24" height="24" aria-hidden="true" alt="play circle">
+                            <img src="{% static 'images/play_circle.png' %}" width="24" height="24" aria-hidden="true" alt="play circle">
 
                             <span class="span">watch Now</span>
                         </a>
@@ -250,7 +150,7 @@
 
                 
                 <div class="slider-item" slider-item>
-                    <img src="./assets/images/slider-banner.jpg" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
+                    <img src="{% static 'images/slider-banner.jpg' %}" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
 
                     <div class="banner-content">
 
@@ -273,7 +173,7 @@
                         </p>
 
                         <a href="./detail.html" class="btn">
-                            <img src="./assets/images/play_circle.png" width="24" height="24" aria-hidden="true" alt="play circle">
+                            <img src="{% static 'images/play_circle.png' %}" width="24" height="24" aria-hidden="true" alt="play circle">
 
                             <span class="span">watch Now</span>
                         </a>
@@ -285,7 +185,7 @@
 
                 
                 <div class="slider-item" slider-item>
-                    <img src="./assets/images/slider-banner.jpg" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
+                    <img src="{% static 'images/slider-banner.jpg' %}" alt="Puss in Boots: The Last wish" class="img-cover" loading="eager">
 
                     <div class="banner-content">
 
@@ -308,7 +208,7 @@
                         </p>
 
                         <a href="./detail.html" class="btn">
-                            <img src="./assets/images/play_circle.png" width="24" height="24" aria-hidden="true" alt="play circle">
+                            <img src="{% static 'images/play_circle.png' %}" width="24" height="24" aria-hidden="true" alt="play circle">
 
                             <span class="span">watch Now</span>
                         </a>
@@ -325,31 +225,31 @@
                 <div class="control-inner">
 
                     <button class="poster-box slider-item active">
-                        <img src="./assets/images/slider-control.jpg" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
+                        <img src="{% static 'images/slider-control.jpg' %}" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
                     </button>
                     
                     <button class="poster-box slider-item">
-                        <img src="./assets/images/slider-control.jpg" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
+                        <img src="{% static 'images/slider-control.jpg' %}" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
                     </button>
 
                     <button class="poster-box slider-item">
-                        <img src="./assets/images/slider-control.jpg" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
+                        <img src="{% static 'images/slider-control.jpg' %}" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
                     </button>
 
                     <button class="poster-box slider-item">
-                        <img src="./assets/images/slider-control.jpg" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
+                        <img src="{% static 'images/slider-control.jpg' %}" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
                     </button>
 
                     <button class="poster-box slider-item">
-                        <img src="./assets/images/slider-control.jpg" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
+                        <img src="{% static 'images/slider-control.jpg' %}" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
                     </button>
 
                     <button class="poster-box slider-item">
-                        <img src="./assets/images/slider-control.jpg" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
+                        <img src="{% static 'images/slider-control.jpg' %}" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
                     </button>
 
                     <button class="poster-box slider-item">
-                        <img src="./assets/images/slider-control.jpg" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
+                        <img src="{% static 'images/slider-control.jpg' %}" alt="Slide to Puss in Bootss: The last wish" loading="lazy" draggable="false" class="img-cover">
                     </button>
 
 
@@ -382,7 +282,7 @@
                     <div class="movie-card">
 
                         <figure class="poster-box card-banener">
-                            <img src="./assets/images/slider-control.jpg" alt="Puss in Boots: The Last Wish" class="img-cover">
+                            <img src="{% static 'images/slider-control.jpg' %}" alt="Puss in Boots: The Last Wish" class="img-cover">
                         </figure>
 
                         <h4 class="title">Puss in Boots: The Last Wish</h4>
@@ -404,7 +304,7 @@
                     <div class="movie-card">
 
                         <figure class="poster-box card-banener">
-                            <img src="./assets/images/slider-control.jpg" alt="Puss in Boots: The Last Wish" class="img-cover">
+                            <img src="{% static 'images/slider-control.jpg' %}" alt="Puss in Boots: The Last Wish" class="img-cover">
                         </figure>
 
                         <h4 class="title">Puss in Boots: The Last Wish</h4>
@@ -425,7 +325,7 @@
                     <div class="movie-card">
 
                         <figure class="poster-box card-banener">
-                            <img src="./assets/images/slider-control.jpg" alt="Puss in Boots: The Last Wish" class="img-cover">
+                            <img src="{% static 'images/slider-control.jpg' %}" alt="Puss in Boots: The Last Wish" class="img-cover">
                         </figure>
 
                         <h4 class="title">Puss in Boots: The Last Wish</h4>
@@ -446,7 +346,7 @@
                     <div class="movie-card">
 
                         <figure class="poster-box card-banener">
-                            <img src="./assets/images/slider-control.jpg" alt="Puss in Boots: The Last Wish" class="img-cover">
+                            <img src="{% static 'images/slider-control.jpg' %}" alt="Puss in Boots: The Last Wish" class="img-cover">
                         </figure>
 
                         <h4 class="title">Puss in Boots: The Last Wish</h4>
@@ -469,7 +369,7 @@
                     <div class="movie-card">
 
                         <figure class="poster-box card-banener">
-                            <img src="./assets/images/slider-control.jpg" alt="Puss in Boots: The Last Wish" class="img-cover">
+                            <img src="{% static 'images/slider-control.jpg' %}" alt="Puss in Boots: The Last Wish" class="img-cover">
                         </figure>
 
                         <h4 class="title">Puss in Boots: The Last Wish</h4>
@@ -498,12 +398,4 @@
     </article>
 
 
-
-
-
-
-    <!-- script Link -->
-    <script type="module" src="./assets/js/global.js"></script>
-    <script type="module" src="./assets/js/index.js"></script>
-</body>
-</html>
+{% endblock %}
