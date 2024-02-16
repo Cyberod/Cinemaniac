@@ -3,8 +3,65 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Genre, Movie, Viewer, FavouriteMovie
 from .forms import AddViewerFavForm
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
+
+def logoutUser(request):
+    logout(request)
+    return redirect('/')
+
+
+def loginPage(request):
+
+    page = 'login'
+
+    if request.user.is_authenticated:
+        return redirect('/')
+
+    if request.method== 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        try:
+            user = User.objects.get(username=username)
+        except:
+            messages.error(request, 'Username does not exist')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.error(request, 'Invalid credentials')
+    
+    context = {'page': page}
+
+    return render(request, 'cinema/login_register.html', context)
+
+
+def registerPage(request):
+    
+    form = UserCreationForm()
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False) #To catch the user credentials like email or username and format it
+            user.username = user.username.lower() #set the username to lower case
+            #user.email = user.email.lower() #set the email to lower case
+            user.save() #save the user credentials
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.error(request, 'An error occured during registration')
+    context = {'form': form}
+    return render(request, 'cinema/login_register.html', context)
 
 
 
@@ -18,6 +75,7 @@ def home(request):
     return render(request, 'cinema/home.html', context)
 
 
+@login_required(login_url='/login/')
 def CreateFav(request):
     form = AddViewerFavForm(request.POST)
 
@@ -39,7 +97,7 @@ def genre_movies(request, genre_id):
     return render(request, 'cinema/genre_movies.html', context)
 
 
-
+@login_required(login_url='/login/')
 def remove_fav(request, viewer_id):
 
     viewer = get_object_or_404(Viewer, id=viewer_id)

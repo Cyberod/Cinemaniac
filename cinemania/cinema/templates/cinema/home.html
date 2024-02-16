@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinemania</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
+
     
-    <a href="/"><h1>LOGO</h1></a>     
 
-    <hr>
-
-    <h3>Homepage</h3>
 
     <div>
 
@@ -46,6 +38,7 @@
             </ul>   
 
             {% for viewer in viewers %}
+            {% if request.user == viewer.F_name %}
             <div>
                 <strong>Name:</strong>{{viewer.F_name}}<br>
                 <strong>Favourite Movie:</strong> {{viewer.is_favourite}}
@@ -53,16 +46,10 @@
                 {% if viewer.is_favourite %}
                 <a href="{% url 'remove_fav' viewer.id %}">remove</a>
                 {% endif %}
+            {% endif %}
 
             </div><br>
             {% endfor %}
 
 
-            
-        </div>
-
-
-    </div>
-
-</body>
-</html>
+{% endblock %}

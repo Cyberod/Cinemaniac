@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from .models import Viewer
+from django.contrib.auth.models import User
 
 
 class AddViewerFavForm(ModelForm):
