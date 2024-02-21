@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
+import requests
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -126,10 +128,44 @@ def remove_fav(request, viewer_id):
 
 
 
+def proxy_api_request(request):
+    api_url = "https://image.tmdb.org/t/p/"
+    api_key = "92492102bdac5ee5e66f112789815a7e"  # Keep this secure on the server
+
+    headers = {"Authorization": f"Bearer {api_key}"}
+    response = requests.get(api_url, headers=headers)
+
+    if response.status_code == 200:
+        movies_data = response.json()
+        return JsonResponse(movies_data)
+    else:
+        return JsonResponse({"error": "Failed to fetch data"}, status=500)
 
 
 
 
+
+
+
+
+
+# views.py
+# import requests
+# from django.shortcuts import render
+
+# def my_view(request):
+#     api_url = "https://api.example.com/movies"
+#     api_key = "your_api_key"  # Keep this secure on the server
+
+#     headers = {"Authorization": f"Bearer {api_key}"}
+#     response = requests.get(api_url, headers=headers)
+
+#     if response.status_code == 200:
+#         movies_data = response.json()
+#     else:
+#         movies_data = []
+
+#     return render(request, 'my_template.html', {'movies_data': movies_data})
 
 
 
