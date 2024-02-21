@@ -6,7 +6,7 @@ from .forms import AddViewerFavForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
@@ -24,23 +24,33 @@ def loginPage(request):
         return redirect('/')
 
     if request.method== 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            #Authentication
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
 
-        try:
-            user = User.objects.get(username=username)
-        except:
-            messages.error(request, 'Username does not exist')
+            # user = form.get_user()
+            # login(request, user)
+            # return redirect('/')
 
-        user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return redirect('/')
-        else:
-            messages.error(request, 'Invalid credentials')
-    
-    context = {'page': page}
+            if user is not None:
+                login(request, user)
+                return redirect('/')
+            else:
+                messages.error(request, 'Invalid username or password')
+
+            try:
+                user = User.objects.get(username=username)
+            except:
+                messages.error(request, 'Username does not exist')
+
+    else:
+        form = AuthenticationForm(request)
+
+    context = {'page': page, 'form': form}
 
     return render(request, 'cinema/login_register.html', context)
 

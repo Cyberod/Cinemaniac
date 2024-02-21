@@ -1,41 +1,156 @@
-{% extends "base.html" %}
-{% block title %}Login_Register{% endblock %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cinemania is a website that recommends movies to watch based on your preference">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="movies, cinema, recommendation">
+    <title>Login Form</title>
+    <meta name="Cyberod" content="Cinemania">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <!-- Box icon-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+    
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <i class='bx bxs-camera-movie'></i>Cine<span class="logo-name">Mania</span>
+        </a>
+    </header>
 {% if page == 'login' %}
-<div>
+    <section class="login-container">
+        <section class="container">
+            
+            <div class="form__container">
+                <h3>Login</h3>
 
-    <form action="" method="POST">
-        {% csrf_token %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <section class="input">
+                        <div>
+                            <input type="text" placeholder="username">
+                        </div>
 
-        <label for="">Username:</label>
-        <input type="text" name="username" placeholder="Enter Username">
+                        <div>
+                            <i class="bx bxs-user" style="color:#ffb43a;"></i>
+                        </div>
+                    </section>
 
-        <label for="">Password:</label>
-        <input type="password" name="password" placeholder="Enter Password">
 
-        <input type="submit" value="Login">
+                    <section class="input">
+                        <div>
+                            <input type="password" placeholder="password">
+                        </div>
 
-    </form>
-    <p>Don't have an account?</p>
-    <a href="{% url 'register' %}">Signup</a>
+                        <div>
+                            <i class='bx bxs-lock' style="color:#ffb43a;"></i>
+                        </div>
+                    </section>
 
-</div>
 
-{% else%}
-<div>
+                    <section class="forgot__password">
+                        <div>
+                            <input type="checkbox" name="" id="">
+                            <span>remember me</span>
+                        </div>
 
-    <form action="" method="POST">
-        {% csrf_token %}
+                        <div>
+                            <a href="">forgot password</a>
+                        </div>
+                    </section>
 
-        {{form.as_p}}
-        <input type="submit" value="Register">
+                    <section class="button">
+                        <button>submit</button>
+                    </section>
 
-    </form>
-    <p>Already have an account?</p>
-    <a href="{% url 'login' %}">Login</a>
+                    <section class="create">
+                        <p>Don't have an account?</p>
+                        <a href="{% url 'register' %}">Register</a>
+                    </section>
+                </form>
+            </div>
+        </section>
+    </section>
+</body>
+{% else %}
+<section class=" register-container">
+    <section class="container">
+        <div class="form__container">
+            <h3>Sign Up</h3>
 
-</div>
+            <form action="" method="post">
+                <section class="input">
+                    <div>
+                        <span>First Name</span>
+                        <input type="text" placeholder="First Name">
+                     </div>
+
+                    <div class="input__icon">
+                        <i class="bx bxs-user" style="color:#ffb43a;"></i>
+                    </div>
+                </section>
+
+                <section class="input">
+                    <div>
+                        <span>Last Name</span>
+                        <input type="text" placeholder="Last Name">
+                    </div>
+
+                    <div class="input__icon">
+                        <i class="bx bxs-user-plus" style="color:#ffb43a;"></i>
+                    </div>
+                </section>
+
+                <section class="input">
+                    <div>
+                        <span>Email</span>
+                        <input type="email" placeholder="Email">
+                    </div>
+
+                    <div class="input__icon">
+                        <i class='bx bxs-envelope' style='color:#ffb43a' ></i>
+                    </div>
+                </section>
+
+                <section class="input">
+                    <div>
+                        <span>Password</span>
+                        <input type="password" placeholder="password">
+                    </div>
+
+                    <div class="input__icon">
+                        <i class='bx bxs-lock' style="color:#ffb43a;"></i>
+                    </div>
+                </section>
+
+                <section class="input">
+                    <div>
+                        <span>confirm Password</span>
+                        <input type="password" placeholder="confirm password">
+                    </div>
+
+                    <div class="input__icon">
+                        <i class='bx bxs-lock' style="color:#ffb43a;"></i>
+                    </div>
+                </section>
+
+                <section class="button">
+                    <button>Sign Up</button>
+                </section>
+            </form>
+        </div>
+    </section>
+</section>
+
+</html>
 {% endif %}
-
-{% endblock %}  

@@ -7,3 +7,5 @@ class AddViewerFavForm(ModelForm):
     class Meta:
         model = Viewer
         fields = ['F_name', 'is_favourite']
+
+
