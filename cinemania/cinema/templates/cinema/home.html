@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<article class="container" page-content>
+    <!-- MOVIE LIST -->
+    <section class="movie-list genre-list">
+
+        <div class="title-wrapper">
+            <h1 class="heading">All Fantasy Movies</h1>
+        </div>
+
+        <div class="grid-list" id="movieGrid">
+            {% for movie in movies %}
+            <div class="movie-card">
+                
+                <figure class="poster-box card-banener">
+                    <img src="{{full_poster_path}}{{movie.poster_path}}" alt="{{movie.original_title}} poster" class="img-cover">
+                </figure>
+
+                <h4 class="title">{{movie.original_title}}</h4>
+
+                <div class="meta-list">
+                    <div class="meta-item">
+
+                        <span class="span">{{ movie.vote_average }}</span>
+                        <i class='bx bxs-star' style='color:#ffb43a' width="20" height="20" loading="lazy" alt="rating"></i>
+                    </div>
+
+                    <div class="card-badge">{{movie.release_date}}</div>
+                </div>
+
+                <a href="./detail.html" class="card-btn" title="{{ movie.original_title }}"></a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <button class="btn load-more">Load More</button>
+
+    </section>
+</article>
+
+
+{% endblock %}

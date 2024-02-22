@@ -77,14 +77,43 @@ def registerPage(request):
 
 
 
-def home(request):
-    genres = Genre.objects.all()
-    favourited = FavouriteMovie.objects.all()
-    viewers = Viewer.objects.all()
-    movies = Movie.objects.all()
+# def home(request):
+#     genres = Genre.objects.all()
+#     favourited = FavouriteMovie.objects.all()
+#     viewers = Viewer.objects.all()
+#     movies = Movie.objects.all()
 
-    context = {'genres': genres, 'favourited': favourited, 'viewers': viewers, 'movies': movies}
-    return render(request, 'cinema/movie-list.html', context)
+#     context = {'genres': genres, 'favourited': favourited, 'viewers': viewers, 'movies': movies}
+#     return render(request, 'cinema/movie-list.html', context)
+
+
+
+
+
+def home(request):
+    api_url = "https://api.themoviedb.org/3/discover/movie"
+    api_key = "92492102bdac5ee5e66f112789815a7e"  # Replace with your TMDB API key
+
+    # Additional parameters you might want to include
+    params = {
+        "api_key": api_key,
+        "language": "en-US",
+        "sort_by": "popularity.desc",
+    }
+
+
+
+    # Make the request to TMDB
+    response = requests.get(api_url, params=params)
+    movies = response.json().get("results", [])
+    
+    full_poster_path = 'https://image.tmdb.org/t/p/w500'
+
+    return render(request, 'cinema/home.html', {"movies": movies, "full_poster_path": full_poster_path})
+
+
+
+
 
 
 @login_required(login_url='/login/')
@@ -126,20 +155,6 @@ def remove_fav(request, viewer_id):
     return redirect('/')
 
 
-
-
-def proxy_api_request(request):
-    api_url = "https://image.tmdb.org/t/p/"
-    api_key = "92492102bdac5ee5e66f112789815a7e"  # Keep this secure on the server
-
-    headers = {"Authorization": f"Bearer {api_key}"}
-    response = requests.get(api_url, headers=headers)
-
-    if response.status_code == 200:
-        movies_data = response.json()
-        return JsonResponse(movies_data)
-    else:
-        return JsonResponse({"error": "Failed to fetch data"}, status=500)
 
 
 
